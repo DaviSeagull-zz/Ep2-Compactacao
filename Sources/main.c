@@ -2,10 +2,21 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#define EX1 1
+#define EX2 2
+#define EX3 3
+
 void cleanScreen() {
     system("cls||clear");
-    //teste
 }
+
+//void getString(char * s, int ex){
+//    if (ex == 1 || ex == 3){
+//        printf ("Insira a string que deseja compactar: ");
+//        scanf("%s", s);
+//        printf("nome: %s", s);
+//    }
+//}
 
 void menu() {
 
@@ -20,13 +31,16 @@ void menu() {
     printf("    *                                                      *\n");
     printf("    ********************************************************\n");
 
-    printf("\nMenu de escolha do exercicio \n");
-    printf("0 - Sair\n");
-    printf("1 - Exercicio 1\n");
-    printf("2 - Exercicio 2\n");
-    printf("3 - Exercicio 3\n");
+
 
     while(true) {
+
+        printf("\nMenu de escolha do exercicio \n");
+        printf("0 - Sair\n");
+        printf("1 - Exercicio 1\n");
+        printf("2 - Exercicio 2\n");
+        printf("3 - Exercicio 3\n");
+
         printf("\nOpcao: ");
         int opc;
         scanf("%d", &opc);
@@ -58,6 +72,8 @@ void menu() {
 void ex1(){
 //comecando o ex
 
+    char s[] = gets();
+    printf("%s" , s)
 }
 
 void ex2(){
