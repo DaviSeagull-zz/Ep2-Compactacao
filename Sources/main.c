@@ -4,6 +4,7 @@
 
 void cleanScreen() {
     system("cls||clear");
+    //teste
 }
 
 void menu() {
@@ -55,6 +56,7 @@ void menu() {
 }
 
 void ex1(){
+//comecando o ex
 
 }
 
