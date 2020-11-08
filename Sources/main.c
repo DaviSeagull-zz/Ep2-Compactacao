@@ -7,6 +7,29 @@ void cleanScreen() {
     //teste
 }
 
+char getString() {
+    int counter = 0;
+    char string[1000];
+    for(int i = 0; i < 1000; i++){
+        string[i] = NULL;
+    }
+    printf("String desejada: ");
+    gets(string);
+    for(int i = 0; i < 1000; i++){
+        if(string[i] == NULL)
+            break;
+        counter ++;
+    }
+    char string2[counter];
+
+    for(int i = 0; i < counter; i++){
+        string2[i] = string[i];
+    }
+
+    puts(string2);
+
+}
+
 void menu() {
 
     printf("    ********************************************************\n");
@@ -57,7 +80,7 @@ void menu() {
 
 void ex1(){
 //comecando o ex
-
+    getString();
 }
 
 void ex2(){
