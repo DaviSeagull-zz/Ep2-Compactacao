@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-//Isso é um comentário
+
 void cleanScreen() {
     system("cls||clear");
 }
