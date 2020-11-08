@@ -8,15 +8,16 @@ void cleanScreen() {
 
 void menu() {
 
-    printf("*****************************************************\n");
-    printf("*                                                   *\n");
-    printf("*          Projeto e Analise de Algoritmos          *\n");
-    printf("*        Ep2 - Compactacao e Descompactacao         *\n");
-    printf("*                                                   *\n");
-    printf("*                    Criado Por:                    *\n");
-    printf("*           31746357 - Davi Gomes Seagull           *\n");
-    printf("*                                                   *\n");
-    printf("*****************************************************\n");
+    printf("    ********************************************************\n");
+    printf("    *                                                      *\n");
+    printf("    *           Projeto e Analise de Algoritmos            *\n");
+    printf("    *          Ep2 - Compactacao e Descompactacao          *\n");
+    printf("    *                                                      *\n");
+    printf("    *                      Criado Por:                     *\n");
+    printf("    *            31746357 - Davi Gomes Seagull             *\n");
+    printf("    *      41908406 - Pedro Henrique Rodrigues Correa      *\n");
+    printf("    *                                                      *\n");
+    printf("    ********************************************************\n");
 
     printf("\nMenu de escolha do exercicio \n");
     printf("0 - Sair\n");
@@ -24,11 +25,11 @@ void menu() {
     printf("2 - Exercicio 2\n");
     printf("3 - Exercicio 3\n");
 
-    printf("\nOpcao: ");
-    int opc;
-    scanf("%d", &opc);
-
     while(true) {
+        printf("\nOpcao: ");
+        int opc;
+        scanf("%d", &opc);
+
         switch (opc) {
             case 0:
                 cleanScreen();
@@ -47,8 +48,8 @@ void menu() {
                 ex3();
                 break;
             default:
-              printf("Voce digitou uma opcao invalida. Tente novamente\n");
-              break;
+                printf("\nVoce digitou uma opcao invalida. Tente novamente\n");
+                break;
         }
     }
 }
@@ -64,6 +65,7 @@ void ex2(){
 void ex3(){
 
 }
+
 int main() {
 
     menu();
