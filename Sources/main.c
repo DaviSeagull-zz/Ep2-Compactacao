@@ -55,14 +55,15 @@ void simpleCompression(char *s){
 char * setString(int ex) {
     if (ex == 1 || ex == 3){
         char * s; //ponteiro para char
-        char aux[1000]; //vetor para receber a string do usuario
+        char aux[100000]; //vetor para receber a string do usuario
         int string_counter = 0; //variavel para contar o tamanho da string
 
         printf("String desejada: ");
-        fgets(aux, 1000, stdin); //recebe a String desejada
+        fflush(stdin);
+        gets(aux); //recebe a String desejada
 
         //for para contar quantos caracteres a String do usuario possui
-        for(int i = 0; i < 1000; i++){
+        for(int i = 0; i < 100000; i++){
             if(aux[i] == "\0")
                 break;
             string_counter++;
