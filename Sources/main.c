@@ -21,11 +21,18 @@ void simpleCompression(char *s){
 
     //for para preencher os vetores com NULL
     for(int i = 0; i < 10; i++){
+<<<<<<< Updated upstream
         letters[i] = NULL;
+=======
+>>>>>>> Stashed changes
         index[i] = NULL;
+        armazena[i] = NULL;
     }
 
+<<<<<<< Updated upstream
     //for para fazer a compressao
+=======
+>>>>>>> Stashed changes
     for(int i = 0; i <= strlen(s); i++){
         if((s[i] != s[i-1]) || i == 0){ //if para verificar se esta na posicao inicial e se a ultima letra eh igual a atual
             if(i != 0){
