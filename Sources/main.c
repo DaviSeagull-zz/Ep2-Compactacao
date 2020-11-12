@@ -2,10 +2,16 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <ctype.h>
+#include <string.h>
 
-#define EX1 1
-#define EX2 2
-#define EX3 3
+/**
+    GitHub: https://github.com/DaviSeagull/Ep2-Compactacao
+
+    Integrantes do grupo:
+        Davi Gomes Seagull (31746357)
+        Gisely Garcia Pereira Souza (41903511)
+        Pedro Henrique Rodrigues Correa (41908406)
+**/
 
 //funcao utilizada para limpar a tela do terminal
 void cleanScreen() {
@@ -21,18 +27,11 @@ void simpleCompression(char *s){
 
     //for para preencher os vetores com NULL
     for(int i = 0; i < 10; i++){
-<<<<<<< Updated upstream
         letters[i] = NULL;
-=======
->>>>>>> Stashed changes
         index[i] = NULL;
-        armazena[i] = NULL;
     }
 
-<<<<<<< Updated upstream
     //for para fazer a compressao
-=======
->>>>>>> Stashed changes
     for(int i = 0; i <= strlen(s); i++){
         if((s[i] != s[i-1]) || i == 0){ //if para verificar se esta na posicao inicial e se a ultima letra eh igual a atual
             if(i != 0){
@@ -48,46 +47,46 @@ void simpleCompression(char *s){
         }
     }
 
-
     //for para imprimir o vetor compactado
     for (int i = 0; i < strlen(letters); i++) {
         if(i != strlen(letters) - 1) //if para verificar se ja esta no ultimo elemento do vetor
-            printf("%c%i - ", letters[i], index[i]);
+            printf("%c%i-", letters[i], index[i]);
         else
             printf("%c%i", letters[i], index[i]);
     }
 }
 
 //funcao para receber a string desejada pelo usuario
-char * setString(int ex) {
-    if (ex == 1 || ex == 3){
-        char * s; //ponteiro para char
-        char aux[100000]; //vetor para receber a string do usuario
-        int string_counter = 0; //variavel para contar o tamanho da string
+char * setString() {
 
-        printf("String desejada: ");
-        fflush(stdin);
-        gets(aux); //recebe a String desejada
+    char * s; //ponteiro para char
+    char aux[100000]; //vetor para receber a string do usuario
+    int string_counter = 0; //variavel para contar o tamanho da string
 
-        //for para contar quantos caracteres a String do usuario possui
-        for(int i = 0; i < 100000; i++){
-            if(aux[i] == "\0")
-                break;
-            string_counter++;
-        }
-        char aux2[string_counter]; //cria vetor com tamanho = a quantidade de caracteres na String
+    printf("String desejada: ");
+    fflush(stdin);
+    gets(aux); //recebe a String desejada
 
-        //for para salvar todos os valores no vetor com tamanho correto
-        for(int i = 0; i < string_counter; i++){
-            aux2[i] = aux[i];
-        }
-        s = &aux2;
-        return s;
+    //for para contar quantos caracteres a String do usuario possui
+    for(int i = 0; i < 100000; i++){
+        if(aux[i] == "\0")
+            break;
+        string_counter++;
     }
+    char aux2[string_counter]; //cria vetor com tamanho = a quantidade de caracteres na String
+
+    //for para salvar todos os valores no vetor com tamanho correto
+    for(int i = 0; i < string_counter; i++){
+        aux2[i] = aux[i];
+    }
+    s = &aux2;
+    return s;
+
 }
 
 //funcao para deixar todas as letras da string em minusculo
 void setLower(char * s) {
+
     char a[strlen(s)]; //vetor de char do tamanho da string
     strcpy(a,s); //copia dos valores da string para o vetor a
     for (int i = 0; i < (strlen(s)); i++)
@@ -96,8 +95,9 @@ void setLower(char * s) {
 
 //funcao para o ex1
 void ex1(){
+
     char * s; //ponteiro para char
-    s = setString(EX1); //chamada da funcao setString
+    s = setString(); //chamada da funcao setString
     setLower(s); //chamada da funcao setLower
     int t = strlen(s); //variavel para armazenar o tamanho da String
     printf("\nTamanho da string: %i\n", t);
@@ -105,6 +105,7 @@ void ex1(){
     puts(s);
     printf("String compactada: ");
     simpleCompression(s); //chamada da funcao simpleCompression
+
 }
 
 void ex2(){
@@ -132,7 +133,6 @@ void menu(){
     printf("    ********************************************************\n");
 
     do {
-
         printf("\n\nMenu de escolha do exercicio \n");
         printf("0 - Sair\n");
         printf("1 - Exercicio 1\n");
@@ -173,4 +173,5 @@ int main() {
 
     menu();
     return 0;
+
 }
