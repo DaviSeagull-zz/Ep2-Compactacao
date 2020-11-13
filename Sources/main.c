@@ -54,6 +54,7 @@ void simpleCompression(char *s){
         else
             printf("%c%i", letters[i], index[i]);
     }
+
 }
 
 //funcao para receber a string desejada pelo usuario
@@ -93,6 +94,30 @@ void setLower(char * s) {
         s[i] = tolower(a[i]);
 }
 
+void subMenuCompression() {
+
+    int opc_menu;
+
+    printf("\n\nDeseja descompactar a string compactada?");
+    printf("\n1 - Sim");
+    printf("\n2 - Nao");
+    printf("\n\nOpcao: ");
+    scanf("%i", &opc_menu);
+
+    do {
+        switch(opc_menu){
+        case 1:
+            break;
+        case 2:
+            cleanScreen();
+            break;
+        default:
+            printf("Voce digitou uma opcao invalida. Tente novamente");
+        }
+    } while(opc_menu != 2);
+
+}
+
 //funcao para o ex1
 void ex1(){
 
@@ -105,6 +130,7 @@ void ex1(){
     puts(s);
     printf("String compactada: ");
     simpleCompression(s); //chamada da funcao simpleCompression
+    subMenuCompression();
 
 }
 
@@ -118,6 +144,7 @@ void ex3(){
 
 //funcao do Menu
 void menu(){
+
     int opc;
 
     printf("    ********************************************************\n");
@@ -167,6 +194,7 @@ void menu(){
         }
     }
     while (opc != 0);
+
 }
 
 int main() {
