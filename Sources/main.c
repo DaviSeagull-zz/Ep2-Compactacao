@@ -15,11 +15,14 @@
 
 //funcao utilizada para limpar a tela do terminal
 void cleanScreen() {
+
     system("cls||clear");
+
 }
 
 //funcao para executar o primeiro exercicio
 void simpleCompression(char *s){
+
     char letters[strlen(s)]; //cria um vetor de char no tamanho da string
     int index[strlen(s)]; //cria um vetor de int no tamanho da string
     int letter_counter = 0; //variavel para contar quantas vezes uma letra repete
@@ -39,8 +42,9 @@ void simpleCompression(char *s){
                 index_counter++;
                 letter_counter = 0; //zera o contador de letras
             }
-            letter_counter++;
             letters[index_counter] = s[i]; // salva no vetor store_letters a letra atual
+            letter_counter++;
+
         }
         if(s[i] == s[i-1]){
             letter_counter++;
@@ -48,7 +52,7 @@ void simpleCompression(char *s){
     }
 
     //for para imprimir o vetor compactado
-    for (int i = 0; i < strlen(letters); i++) {
+    for (int i = 0; i < strlen(letters); i++){
         if(i != strlen(letters) - 1) //if para verificar se ja esta no ultimo elemento do vetor
             printf("%c%i-", letters[i], index[i]);
         else
@@ -92,8 +96,10 @@ void setLower(char * s) {
     strcpy(a,s); //copia dos valores da string para o vetor a
     for (int i = 0; i < (strlen(s)); i++)
         s[i] = tolower(a[i]);
+
 }
 
+//funcao que pergunta se quer descompactar a string compactada
 void subMenuCompression() {
 
     int opc_menu;
@@ -134,10 +140,12 @@ void ex1(){
 
 }
 
+//funcao para o ex2 recebendo user input
 void ex2(){
 
 }
 
+//funcao para o ex2 recebendo string compactada do Ex1 ou Ex3
 void ex3(){
 
 }
