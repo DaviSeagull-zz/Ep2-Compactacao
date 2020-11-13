@@ -141,11 +141,16 @@ void ex1(){
 }
 
 //funcao para o ex2 recebendo user input
-void ex2(){
+void ex2UserInput(){
 
 }
 
 //funcao para o ex2 recebendo string compactada do Ex1 ou Ex3
+void ex2CompressedString(){
+
+}
+
+//funcao para o ex3
 void ex3(){
 
 }
