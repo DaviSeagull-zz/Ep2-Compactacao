@@ -20,8 +20,8 @@ void cleanScreen() {
 
 //funcao para executar o primeiro exercicio
 void simpleCompression(char *s){
-    char letters[10]; //cria um vetor de char no tamanho da string
-    int index[10]; //cria um vetor de int no tamanho da string
+    char letters[strlen(s)]; //cria um vetor de char no tamanho da string
+    int index[strlen(s)]; //cria um vetor de int no tamanho da string
     int letter_counter = 0; //variavel para contar quantas vezes uma letra repete
     int index_counter = 0; //variavel para receber em qual indice do store_letters e index ja foi preenchido
 
