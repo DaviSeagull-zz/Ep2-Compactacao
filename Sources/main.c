@@ -15,13 +15,42 @@
 
 //funcao utilizada para limpar a tela do terminal
 void cleanScreen() {
-
     system("cls||clear");
-
 }
 
+
+void decompression(char *s){ //precisamos arrumar para receber o vetor do Ex1/Ex3
+    char s1[1000];
+    int i = 0, j = 0, k, n;
+
+    while(s[i])
+    {
+        s1[j] = s[i];
+        i++;
+        j++;
+        n = 0;
+
+        while(s[i] >= '1' && s[i] <= '9') {
+            n *= 10;
+            n += s[i] - '0';
+            i++;
+        }
+        for(k = 0; k < n - 1; k++)
+            s1[j+k] = s1[j-1];
+         if(n > 0)
+            j+=n-1;
+    }
+
+    s1[j]='\0';
+
+    printf("\nString Compactada: %s", s);
+	printf("\nString Descompactada: %s",s1);
+
+    return;
+ }
+
 //funcao para executar o primeiro exercicio
-void simpleCompression(char *s){
+char * simpleCompression(char *s){
 
     char letters[strlen(s)]; //cria um vetor de char no tamanho da string
     int index[strlen(s)]; //cria um vetor de int no tamanho da string
@@ -100,27 +129,29 @@ void setLower(char * s) {
 }
 
 //funcao que pergunta se quer descompactar a string compactada
-void subMenuCompression() {
+void subMenuCompression(char *s) {
 
     int opc_menu;
 
-    printf("\n\nDeseja descompactar a string compactada?");
-    printf("\n1 - Sim");
-    printf("\n2 - Nao");
-    printf("\n\nOpcao: ");
-    scanf("%i", &opc_menu);
-
     do {
+        printf("\n\nDeseja descompactar a string compactada?");
+        printf("\n0 - Nao, voltar ao menu");
+        printf("\n1 - Sim");
+        printf("\n\nOpcao: ");
+        scanf("%i", &opc_menu);
+
         switch(opc_menu){
-        case 1:
-            break;
-        case 2:
+        case 0:
             cleanScreen();
+            break;
+        case 1:
+            cleanScreen();
+            decompression(s);
             break;
         default:
             printf("Voce digitou uma opcao invalida. Tente novamente");
         }
-    } while(opc_menu != 2);
+    } while(opc_menu != 0);
 
 }
 
@@ -136,18 +167,17 @@ void ex1(){
     puts(s);
     printf("String compactada: ");
     simpleCompression(s); //chamada da funcao simpleCompression
-    subMenuCompression();
+    subMenuCompression(s);
+
+    return;
 
 }
 
-//funcao para o ex2 recebendo user input
-void ex2UserInput(){
-
-}
-
-//funcao para o ex2 recebendo string compactada do Ex1 ou Ex3
-void ex2CompressedString(){
-
+//funcao para o ex2
+void ex2(){
+    char * s_ex2;
+    s_ex2 = setString();
+    decompression(s_ex2);
 }
 
 //funcao para o ex3
