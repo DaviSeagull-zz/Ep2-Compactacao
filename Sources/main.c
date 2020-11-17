@@ -17,8 +17,32 @@
 void cleanScreen() {
 
     system("cls||clear");
-
 }
+
+void decompression(char *s){
+    char s1[100];
+	int i = 0,j = 0,k,n;
+	while(s[i] != "\0")
+	{
+		s1[j]=s[i];
+		 i++;j++;
+		n = 0;
+        while(s[i]>='1'&&s[i]<='9')
+		{
+			n *= 10;
+			n += s[i] - '0';
+			i++;
+		}
+		for(k = 0;k < n - 1;k++)
+
+			s1[j+k] = s1[j-1];
+		 if(n>0)
+			j+=n-1;
+		}
+	 s1[j]='\0';
+	printf("%s\n",s1);
+ }
+
 
 //funcao para executar o primeiro exercicio
 void simpleCompression(char *s){
@@ -100,7 +124,7 @@ void setLower(char * s) {
 }
 
 //funcao que pergunta se quer descompactar a string compactada
-void subMenuCompression() {
+void subMenuCompression(char *s) {
 
     int opc_menu;
 
@@ -113,6 +137,7 @@ void subMenuCompression() {
     do {
         switch(opc_menu){
         case 1:
+            decompression(s);
             break;
         case 2:
             cleanScreen();
@@ -136,12 +161,14 @@ void ex1(){
     puts(s);
     printf("String compactada: ");
     simpleCompression(s); //chamada da funcao simpleCompression
-    subMenuCompression();
+    subMenuCompression(s);
 
 }
 
 //funcao para o ex2 recebendo user input
 void ex2UserInput(){
+
+
 
 }
 
@@ -194,7 +221,6 @@ void menu(){
                 break;
             case 2:
                 cleanScreen();
-                ex2();
                 break;
             case 3:
                 cleanScreen();
