@@ -33,7 +33,7 @@ char * setString() {
 
     printf("String desejada: ");
     fflush(stdin);
-    gets(aux); //recebe a String desejada
+    scanf("%s", aux); //recebe a String desejada
 
     //for para contar quantos caracteres a String do usuario possui
     for(int i = 0; i < 100000; i++){
