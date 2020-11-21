@@ -20,16 +20,13 @@ void cleanScreen() {
 
 //funcao para preencher a string de null
 void fillNull(char * s){
-
     int t = strlen(s);
     for(int i = 0; i <= t; i++)
         s[i] = NULL;
-
 }
 
 //funcao para receber a string desejada pelo usuario
 char * setString() {
-
     char * s; //ponteiro para char
     char aux[100000]; //vetor para receber a string do usuario
     int string_counter = 0; //variavel para contar o tamanho da string
@@ -55,12 +52,10 @@ char * setString() {
     s = &aux2;
 
     return s;
-
 }
 
 //funcao para deixar todas as letras da string em minusculo
 void setLower(char * s) {
-
     char a[strlen(s)]; //vetor de char do tamanho da string
 
     strcpy(a,s); //copia dos valores da string para o vetor a
@@ -68,12 +63,10 @@ void setLower(char * s) {
     // for para salvar em lowercase cada posicao do vetor
     for (int i = 0; i < (strlen(s)); i++)
         s[i] = tolower(a[i]);
-
 }
 
 //funcao para remover o hifen da string recebida
 void removeHyphen (char * s) {
-
     int size_s = strlen(s); //variavel com o tamanho da string
 
     char aux[size_s]; //vetor aux do tamanho da string
@@ -89,12 +82,10 @@ void removeHyphen (char * s) {
         strcat(s,token);
         token = strtok(NULL, c);
     }
-
 }
 
 //funcao para descomprimir string
 void decompression(char * s){
-
     char aux1[1000] = ""; //declaracao do vetor auxiliar 1
     char aux2[1000] = ""; //declaracao do vetor auxiliar 2
     int i = 0, j = 0, k, n;
@@ -133,11 +124,10 @@ void decompression(char * s){
 	printf("\nString Descompactada: %s", aux2);
 
     return;
- }
+}
 
 //funcao para executar o primeiro exercicio
-char * simpleCompression(char *s){
-
+void simpleCompression(char * s){
     char letters[strlen(s)]; //cria um vetor de char no tamanho da string
     int index[strlen(s)]; //cria um vetor de int no tamanho da string
     int letter_counter = 0; //variavel para contar quantas vezes uma letra repete
@@ -173,12 +163,73 @@ char * simpleCompression(char *s){
         else
             printf("%c%i", letters[i], index[i]);
     }
+}
 
+void complexCompression(char * s) {
+    char mainArray[strlen(s)]; //declaracao do vetor que guardada a substring
+    char first_char[10000] = " ";
+    char different_char[10000] = " ";
+    int pos = 0;
+
+    while (pos < strlen(s)) {
+        int counter = 0; //contador 1
+        int c = 0; //contador 2
+        int i = 0; //contador 3
+        bool verify = true; //bool para sair do while
+
+        fillNull(mainArray); //preenche o vetor de null
+
+        //for para passar por toda a string
+        for (i = pos; i < strlen(s); i++) {
+            //se estiver na primeira posicao
+            if (i == pos) {
+                first_char[0] = s[pos]; //salva a primeira letra no vetor first_char
+                strcpy(mainArray, first_char);//copia o first_char para mainArray
+            }
+
+            //verifica se a segunda letra da string eh diferente do first_char
+            if (first_char[0] != s[i + 1]) {
+                different_char[0] = s[i + 1]; //salva a letra no vetor different_char
+                strcat(mainArray, different_char); //concatena o different_char em mainArray
+            }
+
+            else
+                i = strlen(s);
+            }
+
+        while(verify) {
+            c = 0;
+
+            //for para passar por todo mainArray
+            for (int i = 0; i < strlen(mainArray); i++) {
+
+                //verifica se o mainArray possui todas as letras da string
+                if (mainArray[i] == s[pos] && pos < strlen(s)) {
+                    c++;
+                    pos++;
+                }
+
+                else {
+                    verify = false; //sair do while
+                }
+            }
+
+            if (c == strlen(mainArray) && verify)
+                counter++;
+
+            else
+                pos = pos - c;
+        }
+
+        //printar a subString com o hifen
+        printf("%s%i", mainArray, counter);
+        if (pos != strlen(s))
+            printf("-");
+    }
 }
 
 //funcao para o ex1
 void ex1(){
-
     char * s_ex1; //ponteiro para string recebida
     s_ex1 = setString(); //chamada da funcao setString
 
@@ -193,38 +244,30 @@ void ex1(){
 
     simpleCompression(s_ex1); //chamada da funcao simpleCompression
     return;
-
 }
 
 //funcao para o ex2
 void ex2(){
-
     char * s_ex2; //ponteiro para string recebida
     s_ex2 = setString(); //chamada da funcao setString
 
     setLower(s_ex2); //chamada da funcao setLower
     removeHyphen(s_ex2); //chamada da funcao removeHyphen
     decompression(s_ex2); //chamada da funcao decompression
-
 }
 
 //funcao para o ex3
 void ex3(){
-    char * s_ex3; //ponteiro para char
+    char * s_ex3; //ponteiro para string recebida
     s_ex3 = setString(); //chamada da funcao setString
 
     setLower(s_ex3); //chamada da funcao setLower
-    int t = strlen(s_ex3); //variavel para armazenar o tamanho da String
 
-    printf("\nTamanho da string: %i\n", t);
-    printf("String: ");
-    puts(s_ex3);
-    printf("String compactada: ");
+    complexCompression(s_ex3); //chamada da funcao decompression
 }
 
 //funcao do Menu
 void menu(){
-
     int opc;
 
     printf("    ********************************************************\n");
@@ -274,13 +317,10 @@ void menu(){
         }
     }
     while (opc != 0);
-
 }
 
 int main() {
-
     menu();
     return 0;
-
 }
 
