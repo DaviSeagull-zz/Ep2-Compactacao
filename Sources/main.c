@@ -21,7 +21,8 @@ void cleanScreen() {
 //funcao para preencher a string de null
 void fillNull(char * s){
 
-    for(int i = 0; i <= strlen(s); i++)
+    int t = strlen(s);
+    for(int i = 0; i <= t; i++)
         s[i] = NULL;
 
 }
@@ -92,13 +93,11 @@ void removeHyphen (char * s) {
 }
 
 //funcao para descomprimir string
-void decompression(char *s){
+void decompression(char * s){
 
-    char aux1[1000]; //declaracao do vetor auxiliar 1
-    char aux2[1000]; //declaracao do vetor auxiliar 2
+    char aux1[1000] = ""; //declaracao do vetor auxiliar 1
+    char aux2[1000] = ""; //declaracao do vetor auxiliar 2
     int i = 0, j = 0, k, n;
-
-    fillNull(aux2); //preencher o aux2 de null
 
     while(s[i]) {
         n = 0;
